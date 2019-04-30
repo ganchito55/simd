@@ -18,6 +18,12 @@ namespace Simd
     {
         static void Main(string[] args)
         {
+            if(!Sse41.IsSupported){
+                Console.WriteLine("Your CPU doesn't support SSE4.1 Instruction set");
+                return;
+            }
+
+
             var summary = BenchmarkRunner.Run<FindMinValueHelper>();
         }
     }
